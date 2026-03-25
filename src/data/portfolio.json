@@ -1,0 +1,128 @@
+[
+  {
+    "id": "proplumb",
+    "slug": "proplumb-services",
+    "title": "ProPlumb Services",
+    "category": "Trades",
+    "location": "Edmonton",
+    "tag": "Plumbing \u00b7 Edmonton",
+    "result": "New website + local SEO delivered <strong>+187% more calls</strong> within 3 months of launch.",
+    "services": "Website + SEO + Maintenance",
+    "image": "/images/portfolio/proplumb.jpg",
+    "imageAlt": "Professional plumber repairing kitchen pipes in a Edmonton home",
+    "featured": true,
+    "caseStudy": {
+      "description": "ProPlumb came to us with an outdated, slow website that wasn't ranking on Google. We redesigned the entire site with a focus on local SEO and conversion optimization.",
+      "metrics": [
+        { "value": "+187%", "label": "More calls" },
+        { "value": "Page 1", "label": "Google ranking" },
+        { "value": "2.1s", "label": "Load time" }
+      ]
+    }
+  },
+  {
+    "id": "lumiere",
+    "slug": "lumiere-skin-clinic",
+    "title": "Lumi\u00e8re Skin Clinic",
+    "category": "Health",
+    "location": "Vancouver",
+    "tag": "Aesthetics Clinic \u00b7 Vancouver",
+    "result": "Brand-new website helped secure <strong>4.9\u2605 Google rating</strong> and tripled online bookings in 60 days.",
+    "services": "Design + Dev + Lead Gen",
+    "image": "/images/portfolio/lumiere.jpg",
+    "imageAlt": "Modern aesthetics clinic interior with treatment equipment in Vancouver",
+    "featured": true,
+    "caseStudy": {
+      "description": "Lumi\u00e8re needed a premium online presence to match their high-end clinic. We delivered a sleek, conversion-focused site with integrated booking.",
+      "metrics": [
+        { "value": "3\u00d7", "label": "Online bookings" },
+        { "value": "4.9\u2605", "label": "Google rating" },
+        { "value": "60 days", "label": "To results" }
+      ]
+    }
+  },
+  {
+    "id": "trueclean",
+    "slug": "trueclean-pro",
+    "title": "TrueClean Pro",
+    "category": "Cleaning",
+    "location": "Calgary",
+    "tag": "Cleaning Service \u00b7 Calgary",
+    "result": "Redesign + local SEO resulted in <strong>Page 1 ranking</strong> for 12 local keywords within 90 days.",
+    "services": "Redesign + Local SEO",
+    "image": "/images/portfolio/trueclean.jpg",
+    "imageAlt": "Professional cleaning service team working in a Calgary commercial space",
+    "featured": true,
+    "caseStudy": {
+      "description": "TrueClean had a website they were embarrassed to share. We rebuilt it from the ground up with a professional design and comprehensive local SEO strategy.",
+      "metrics": [
+        { "value": "12", "label": "Keywords ranked" },
+        { "value": "Page 1", "label": "Google Maps" },
+        { "value": "+142%", "label": "Organic traffic" }
+      ]
+    }
+  },
+  {
+    "id": "sparkelectric",
+    "slug": "spark-electric",
+    "title": "SparkElectric",
+    "category": "Trades",
+    "location": "Ottawa",
+    "tag": "Electrical \u00b7 Ottawa",
+    "result": "Complete website build with lead gen system delivered <strong>+220% more quote requests</strong> in first quarter.",
+    "services": "Website + Lead Gen + SEO",
+    "image": "/images/portfolio/sparkelectric.jpg",
+    "imageAlt": "Electrician testing an electrical panel with a multimeter in Ottawa",
+    "featured": false,
+    "caseStudy": {
+      "description": "SparkElectric needed a professional online presence to compete with larger firms. We built a conversion-focused site with smart quote request forms.",
+      "metrics": [
+        { "value": "+220%", "label": "Quote requests" },
+        { "value": "1.8s", "label": "Load time" },
+        { "value": "98", "label": "PageSpeed" }
+      ]
+    }
+  },
+  {
+    "id": "glosssalon",
+    "slug": "gloss-salon",
+    "title": "Gloss Salon",
+    "category": "Beauty",
+    "location": "Montreal",
+    "tag": "Hair Salon \u00b7 Montreal",
+    "result": "New brand-aligned website drove <strong>+156% online bookings</strong> and 5.0\u2605 Google rating within 2 months.",
+    "services": "Design + Dev + Maintenance",
+    "image": "/images/portfolio/glosssalon.jpg",
+    "imageAlt": "Stylish hair salon interior with mirrors and styling chairs in Montreal",
+    "featured": false,
+    "caseStudy": {
+      "description": "Gloss Salon wanted a website that reflected their upscale brand. We delivered a visually stunning, mobile-first site with integrated booking.",
+      "metrics": [
+        { "value": "+156%", "label": "Bookings" },
+        { "value": "5.0\u2605", "label": "Google rating" },
+        { "value": "8 days", "label": "Delivered in" }
+      ]
+    }
+  },
+  {
+    "id": "fixright",
+    "slug": "fixright-roofing",
+    "title": "FixRight Roofing",
+    "category": "Trades",
+    "location": "Edmonton",
+    "tag": "Roofing \u00b7 Edmonton",
+    "result": "Full rebuild with SEO strategy led to <strong>Page 1 for 8 keywords</strong> and 3\u00d7 more leads.",
+    "services": "Redesign + SEO + Speed Opt",
+    "image": "/images/portfolio/fixright.jpg",
+    "imageAlt": "Roofing contractor installing shingles on a residential roof in Edmonton",
+    "featured": false,
+    "caseStudy": {
+      "description": "FixRight Roofing was invisible on Google. After a complete site rebuild and local SEO campaign, they became the top-ranking roofer in Edmonton.",
+      "metrics": [
+        { "value": "3\u00d7", "label": "More leads" },
+        { "value": "8", "label": "Keywords on Page 1" },
+        { "value": "99", "label": "PageSpeed" }
+      ]
+    }
+  }
+]
