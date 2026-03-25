@@ -174,7 +174,7 @@ export default function ContactPage() {
                 </button>
               </div>
             ) : (
-              <form ref={formRef} onSubmit={handleSubmit} className='space-y-5'>
+              <form ref={formRef} onSubmit={handleSubmit} className='space-y-5' netlify>
                 {/* Honeypot — invisible to users, bots fill it */}
                 <div className='absolute -left-[9999px]' aria-hidden='true'>
                   <label htmlFor='website'>Website</label>
