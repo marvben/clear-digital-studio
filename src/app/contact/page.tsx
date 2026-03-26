@@ -117,7 +117,7 @@ export default function ContactPage() {
         }
       }
 
-      const { data } = await axios.post('/api/contact', {
+      const { data } = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/contact`, {
         ...formData,
         recaptchaToken,
       });
