@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Script from 'next/script';
+import axios from 'axios';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -94,30 +95,29 @@ export default function ContactPage() {
         });
       }
 
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name,
-          email,
-          business,
-          phone: formData.get('phone') as string,
-          projectType: formData.get('projectType') as string,
-          budget: formData.get('budget') as string,
-          message,
-          recaptchaToken,
-          website: formData.get('website') as string, // honeypot
-        }),
+      const { data } = await axios.post('/api/contact', {
+        name,
+        email,
+        business,
+        phone: formData.get('phone') as string,
+        projectType: formData.get('projectType') as string,
+        budget: formData.get('budget') as string,
+        message,
+        recaptchaToken,
+        website: formData.get('website') as string, // honeypot
       });
 
-      const data = await res.json();
-      if (!res.ok) {
-        setError(data.errors?.[0] || 'Something went wrong. Please try again.');
-      } else {
+      if (data.success) {
         setSubmitted(true);
+      } else {
+        setError(data.errors?.[0] || 'Something went wrong. Please try again.');
       }
-    } catch {
-      setError('Could not send your message. Please try again later.');
+    } catch (err) {
+      if (axios.isAxiosError(err) && err.response?.data?.errors?.[0]) {
+        setError(err.response.data.errors[0]);
+      } else {
+        setError('Could not send your message. Please try again later.');
+      }
     } finally {
       setSubmitting(false);
     }
