@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Script from 'next/script';
 import axios from 'axios';
+import { useForm } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -15,7 +16,7 @@ const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 const projectTypes = ['Brand new website', 'Website redesign', 'WordPress', 'Shopify', 'Landing Page', 'Sales Page', 'Local SEO', 'Speed optimization', 'Maintenance', 'Growth', 'Not sure yet'];
 
-const budgetRanges = ['Under $1,500', '$1,500\u2013$3,000', '$3,000\u2013$6,000', '$6,000+', 'Not sure yet'];
+const budgetRanges = ['Under $1,500', '$1,500 - $3,000', '$3,000 - $6,000', '$6,000+', 'Not sure yet'];
 
 const faqItems = [
   {
@@ -53,12 +54,39 @@ declare global {
   }
 }
 
+interface ContactFormData {
+  name: string;
+  email: string;
+  business: string;
+  phone: string;
+  projectType: string;
+  budget: string;
+  message: string;
+  website: string;
+}
+
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState('');
-  const formRef = useRef<HTMLFormElement>(null);
+  const [serverError, setServerError] = useState('');
   const [recaptchaReady, setRecaptchaReady] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormData>({
+    defaultValues: {
+      name: '',
+      email: '',
+      business: '',
+      phone: '',
+      projectType: '',
+      budget: '',
+      message: '',
+      website: '',
+    },
+  });
 
   const onRecaptchaLoad = useCallback(() => {
     if (window.grecaptcha) {
@@ -72,20 +100,10 @@ export default function ContactPage() {
     }
   }, []);
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setError('');
-    const form = e.currentTarget;
-    const formData = new FormData(form);
+  async function onSubmit(formData: ContactFormData) {
+    setServerError('');
 
-    const name = formData.get('name') as string;
-    const email = formData.get('email') as string;
-    const business = formData.get('business') as string;
-    const message = formData.get('message') as string;
-
-    if (!name || !email || !business || !message) return;
-
-    setSubmitting(true);
+    if (formData.website) return;
 
     try {
       let recaptchaToken = '';
@@ -96,30 +114,22 @@ export default function ContactPage() {
       }
 
       const { data } = await axios.post('/api/contact', {
-        name,
-        email,
-        business,
-        phone: formData.get('phone') as string,
-        projectType: formData.get('projectType') as string,
-        budget: formData.get('budget') as string,
-        message,
+        ...formData,
         recaptchaToken,
-        website: formData.get('website') as string, // honeypot
       });
 
       if (data.success) {
         setSubmitted(true);
+        reset();
       } else {
-        setError(data.errors?.[0] || 'Something went wrong. Please try again.');
+        setServerError(data.errors?.[0] || 'Something went wrong. Please try again.');
       }
     } catch (err) {
       if (axios.isAxiosError(err) && err.response?.data?.errors?.[0]) {
-        setError(err.response.data.errors[0]);
+        setServerError(err.response.data.errors[0]);
       } else {
-        setError('Could not send your message. Please try again later.');
+        setServerError('Could not send your message. Please try again later.');
       }
-    } finally {
-      setSubmitting(false);
     }
   }
 
@@ -166,7 +176,7 @@ export default function ContactPage() {
                 <button
                   onClick={() => {
                     setSubmitted(false);
-                    setError('');
+                    setServerError('');
                   }}
                   className='mt-6 text-sm text-gray-400 underline underline-offset-4 hover:text-ink transition-colors'
                 >
@@ -174,11 +184,11 @@ export default function ContactPage() {
                 </button>
               </div>
             ) : (
-              <form ref={formRef} onSubmit={handleSubmit} className='space-y-5'>
-                {/* Honeypot — invisible to users, bots fill it */}
+              <form onSubmit={handleSubmit(onSubmit)} className='space-y-5'>
+                {/* Honeypot */}
                 <div className='hidden' aria-hidden='true'>
                   <label htmlFor='website'>Website</label>
-                  <input type='text' id='website' name='website' tabIndex={-1} autoComplete='off' />
+                  <input type='text' id='website' tabIndex={-1} autoComplete='off' {...register('website')} />
                 </div>
 
                 {/* Name + Email */}
@@ -187,13 +197,29 @@ export default function ContactPage() {
                     <label htmlFor='name' className='mb-1.5 block text-sm font-medium text-ink'>
                       Name <span className='text-red-400'>*</span>
                     </label>
-                    <Input id='name' name='name' placeholder='Your name' required className='h-10 rounded-lg' />
+                    <Input
+                      id='name'
+                      placeholder='Your name'
+                      className={`h-10 rounded-lg ${errors.name ? 'border-red-400 focus-visible:ring-red-200' : ''}`}
+                      {...register('name', { required: 'Name is required' })}
+                    />
+                    {errors.name && <p className='mt-1 text-xs text-red-500'>{errors.name.message}</p>}
                   </div>
                   <div>
                     <label htmlFor='email' className='mb-1.5 block text-sm font-medium text-ink'>
                       Email <span className='text-red-400'>*</span>
                     </label>
-                    <Input id='email' name='email' type='email' placeholder='you@company.com' required className='h-10 rounded-lg' />
+                    <Input
+                      id='email'
+                      type='email'
+                      placeholder='you@company.com'
+                      className={`h-10 rounded-lg ${errors.email ? 'border-red-400 focus-visible:ring-red-200' : ''}`}
+                      {...register('email', {
+                        required: 'Email is required',
+                        pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Enter a valid email' },
+                      })}
+                    />
+                    {errors.email && <p className='mt-1 text-xs text-red-500'>{errors.email.message}</p>}
                   </div>
                 </div>
 
@@ -203,13 +229,19 @@ export default function ContactPage() {
                     <label htmlFor='business' className='mb-1.5 block text-sm font-medium text-ink'>
                       Business Name <span className='text-red-400'>*</span>
                     </label>
-                    <Input id='business' name='business' placeholder='Your business' required className='h-10 rounded-lg' />
+                    <Input
+                      id='business'
+                      placeholder='Your business'
+                      className={`h-10 rounded-lg ${errors.business ? 'border-red-400 focus-visible:ring-red-200' : ''}`}
+                      {...register('business', { required: 'Business name is required' })}
+                    />
+                    {errors.business && <p className='mt-1 text-xs text-red-500'>{errors.business.message}</p>}
                   </div>
                   <div>
                     <label htmlFor='phone' className='mb-1.5 block text-sm font-medium text-ink'>
                       Phone <span className='text-gray-500'>(optional)</span>
                     </label>
-                    <Input id='phone' name='phone' type='tel' placeholder='(416) 555-0100' className='h-10 rounded-lg' />
+                    <Input id='phone' type='tel' placeholder='(780) 555-0100' className='h-10 rounded-lg' {...register('phone')} />
                   </div>
                 </div>
 
@@ -221,13 +253,10 @@ export default function ContactPage() {
                     </label>
                     <select
                       id='projectType'
-                      name='projectType'
-                      defaultValue=''
                       className='h-10 w-full rounded-lg border border-input bg-white px-3 text-sm text-ink outline-none transition-colors focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50'
+                      {...register('projectType')}
                     >
-                      <option value='' disabled>
-                        Select a project type
-                      </option>
+                      <option value=''>Select a project type</option>
                       {projectTypes.map((type) => (
                         <option key={type} value={type}>
                           {type}
@@ -241,13 +270,10 @@ export default function ContactPage() {
                     </label>
                     <select
                       id='budget'
-                      name='budget'
-                      defaultValue=''
                       className='h-10 w-full rounded-lg border border-input bg-white px-3 text-sm text-ink outline-none transition-colors focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50'
+                      {...register('budget')}
                     >
-                      <option value='' disabled>
-                        Select a range
-                      </option>
+                      <option value=''>Select a range</option>
                       {budgetRanges.map((range) => (
                         <option key={range} value={range}>
                           {range}
@@ -262,15 +288,22 @@ export default function ContactPage() {
                   <label htmlFor='message' className='mb-1.5 block text-sm font-medium text-ink'>
                     Message <span className='text-red-400'>*</span>
                   </label>
-                  <Textarea id='message' name='message' placeholder='Tell us about your project, goals, or any questions you have...' required rows={5} className='rounded-lg' />
+                  <Textarea
+                    id='message'
+                    placeholder='Tell us about your project, goals, or any questions you have...'
+                    rows={5}
+                    className={`rounded-lg ${errors.message ? 'border-red-400 focus-visible:ring-red-200' : ''}`}
+                    {...register('message', { required: 'Message is required' })}
+                  />
+                  {errors.message && <p className='mt-1 text-xs text-red-500'>{errors.message.message}</p>}
                 </div>
 
-                {error && <p className='text-sm text-red-500'>{error}</p>}
+                {serverError && <p className='text-sm text-red-500'>{serverError}</p>}
 
                 {/* Submit */}
-                <Button type='submit' disabled={submitting} className='h-12 w-full rounded-xl bg-ink text-sm font-semibold text-white hover:bg-ink/90'>
-                  {submitting ? 'Sending...' : 'Send message'}
-                  {!submitting && <ArrowRight className='ml-2 size-4' />}
+                <Button type='submit' disabled={isSubmitting} className='h-12 w-full rounded-xl bg-ink text-sm font-semibold text-white hover:bg-ink/90'>
+                  {isSubmitting ? 'Sending...' : 'Send message'}
+                  {!isSubmitting && <ArrowRight className='ml-2 size-4' />}
                 </Button>
 
                 <p className='text-center text-xs text-gray-400'>
@@ -310,8 +343,8 @@ export default function ContactPage() {
                   <Phone className='mt-0.5 size-4 shrink-0 text-amber' />
                   <div>
                     <p className='text-xs font-medium uppercase tracking-wider text-gray-400'>Phone</p>
-                    <a href='tel:+14165550100' className='mt-0.5 block text-sm font-semibold text-ink hover:text-amber transition-colors'>
-                      +1 (416) 555-0100
+                    <a href='tel:+17805550100' className='mt-0.5 block text-sm font-semibold text-ink hover:text-amber transition-colors'>
+                      +1 (780) 555-0100
                     </a>
                   </div>
                 </div>
@@ -320,7 +353,7 @@ export default function ContactPage() {
                   <Clock className='mt-0.5 size-4 shrink-0 text-amber' />
                   <div>
                     <p className='text-xs font-medium uppercase tracking-wider text-gray-400'>Hours</p>
-                    <p className='mt-0.5 text-sm font-semibold text-ink'>Mon&ndash;Fri, 9am&ndash;6pm EST</p>
+                    <p className='mt-0.5 text-sm font-semibold text-ink'>Mon&ndash;Fri, 9am&ndash;6pm MST</p>
                   </div>
                 </div>
               </div>
@@ -328,7 +361,7 @@ export default function ContactPage() {
               <div className='mt-8 rounded-xl bg-ink p-5'>
                 <p className='text-sm font-semibold text-white'>Prefer a call?</p>
                 <p className='mt-1.5 text-xs leading-relaxed text-white/60'>Book a free 15-minute consultation. No pressure, just honest advice about your project.</p>
-                <a href='tel:+14165550100' className='mt-4 inline-flex items-center gap-2 text-xs font-semibold text-amber transition-colors hover:text-amber-light'>
+                <a href='tel:+17805550100' className='mt-4 inline-flex items-center gap-2 text-xs font-semibold text-amber transition-colors hover:text-amber-light'>
                   Call us now
                   <ArrowRight className='size-3' />
                 </a>
@@ -359,8 +392,8 @@ export default function ContactPage() {
           </p>
           <p className='reveal reveal-delay-1 mt-6 text-sm text-white/50'>
             Scroll up to send us a message, or call{' '}
-            <a href='tel:+14165550100' className='text-white/70 hover:text-white transition-colors'>
-              +1 (416) 555-0100
+            <a href='tel:+17805550100' className='text-white/70 hover:text-white transition-colors'>
+              +1 (780) 555-0100
             </a>
           </p>
         </div>
