@@ -108,12 +108,16 @@ export default function ContactPage() {
     try {
       let recaptchaToken = '';
       if (RECAPTCHA_SITE_KEY && window.grecaptcha && recaptchaReady) {
-        recaptchaToken = await window.grecaptcha.execute(RECAPTCHA_SITE_KEY, {
-          action: 'contact_submit',
-        });
+        try {
+          recaptchaToken = await window.grecaptcha.execute(RECAPTCHA_SITE_KEY, {
+            action: 'contact_submit',
+          });
+        } catch {
+          // reCAPTCHA failed (bad key, network, etc.) — continue without token
+        }
       }
 
-      const { data } = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/contact`, {
+      const { data } = await axios.post('/api/contact', {
         ...formData,
         recaptchaToken,
       });
