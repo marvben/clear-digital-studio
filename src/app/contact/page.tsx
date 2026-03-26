@@ -174,9 +174,9 @@ export default function ContactPage() {
                 </button>
               </div>
             ) : (
-              <form ref={formRef} onSubmit={handleSubmit} className='space-y-5' netlify>
+              <form ref={formRef} onSubmit={handleSubmit} className='space-y-5' data-netlify='true' data-netlify-honeypot='website'>
                 {/* Honeypot — invisible to users, bots fill it */}
-                <div className='absolute -left-[9999px]' aria-hidden='true'>
+                <div className='hidden' aria-hidden='true'>
                   <label htmlFor='website'>Website</label>
                   <input type='text' id='website' name='website' tabIndex={-1} autoComplete='off' />
                 </div>
@@ -301,7 +301,7 @@ export default function ContactPage() {
                   <div>
                     <p className='text-xs font-medium uppercase tracking-wider text-gray-400'>Email</p>
                     <a href='mailto:hello@cleardigitalstudio.ca' className='mt-0.5 block text-sm font-semibold text-ink hover:text-amber transition-colors'>
-                      hello@cleardigitalstudio.com
+                      hello@cleardigitalstudio.ca
                     </a>
                   </div>
                 </div>
