@@ -166,7 +166,7 @@ export default function AboutPage() {
                 key={member.name}
                 className={`reveal reveal-delay-${Math.min(i + 1, 5)}`}
               >
-                <div className="relative mx-auto aspect-square w-full max-w-[380px] overflow-hidden rounded-2xl bg-gray-100">
+                <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-gray-100">
                   {member.image ? (
                     <Image
                       src={member.image}
