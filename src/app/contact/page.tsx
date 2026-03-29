@@ -337,7 +337,7 @@ export default function ContactPage() {
                   <Mail className='mt-0.5 size-4 shrink-0 text-amber' />
                   <div>
                     <p className='text-xs font-medium uppercase tracking-wider text-gray-400'>Email</p>
-                    <a href='mailto:hello@cleardigitalstudio.ca' className='mt-0.5 block text-sm font-semibold text-ink hover:text-amber transition-colors'>
+                    <a href='mailto:hello@cleardigitalstudio.com' className='mt-0.5 block text-sm font-semibold text-ink hover:text-amber transition-colors'>
                       hello@cleardigitalstudio.com
                     </a>
                   </div>

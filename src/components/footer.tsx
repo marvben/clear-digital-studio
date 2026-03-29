@@ -32,7 +32,7 @@ export function Footer() {
             <div>
               <p className='text-[11px] font-semibold uppercase tracking-widest text-gray-500'>Contact</p>
               <div className='mt-3 flex flex-col gap-2 text-[13px] text-gray-400'>
-                <a href='mailto:hello@cleardigitalstudio.ca' className='transition-colors hover:text-ink'>
+                <a href='mailto:hello@cleardigitalstudio.com' className='transition-colors hover:text-ink'>
                   hello@cleardigitalstudio.com
                 </a>
                 <span>Edmonton, AB</span>

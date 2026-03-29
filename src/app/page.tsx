@@ -5,6 +5,7 @@ import { Section } from '@/components/section';
 import { HeroGraphic } from '@/components/hero-graphic';
 import { ArrowRight, Check } from 'lucide-react';
 import portfolioData from '@/data/portfolio.json';
+import { Reviews } from '@/components/reviews';
 
 const portfolioItems = portfolioData.slice(0, 3);
 
@@ -189,50 +190,8 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* ── Testimonial ── Single featured, not a grid of 3 identical cards */}
-      <div className='bg-gray-50/40 py-28 md:py-36'>
-        <div className='mx-auto max-w-6xl px-6'>
-          <div className='reveal grid items-center gap-16 lg:grid-cols-[1fr_1.1fr]'>
-            <div>
-              <p className='text-xs font-semibold uppercase tracking-widest text-amber'>Client feedback</p>
-              <blockquote className='mt-6 font-display text-[clamp(22px,2.8vw,32px)] font-medium leading-[1.35] tracking-tight text-ink'>
-                &ldquo;We went from barely getting any online inquiries to 5-6 calls a week. The website paid for itself in the first month.&rdquo;
-              </blockquote>
-              <div className='mt-8 flex items-center gap-4'>
-                <div className='flex h-10 w-10 items-center justify-center rounded-full bg-ink text-xs font-bold text-white'>DT</div>
-                <div>
-                  <p className='text-sm font-semibold text-ink'>Derek Thompson</p>
-                  <p className='text-[13px] text-gray-400'>Thompson Plumbing, Ottawa</p>
-                </div>
-              </div>
-            </div>
-
-            <div className='space-y-4'>
-              {[
-                {
-                  quote: 'They actually listened instead of just selling us stuff. Bookings are up 3x.',
-                  name: 'Lisa Park',
-                  role: 'Gloss Beauty Studio, Calgary',
-                },
-                {
-                  quote: 'Had the site live in 9 days. Made the whole process painless.',
-                  name: 'Carlos Rivera',
-                  role: 'ProClean Services, Edmonton',
-                },
-              ].map((t) => (
-                <div key={t.name} className='rounded-xl border border-gray-100 bg-white p-5'>
-                  <p className='text-[13px] leading-relaxed text-gray-500 italic'>&ldquo;{t.quote}&rdquo;</p>
-                  <p className='mt-3 text-[13px]'>
-                    <span className='font-semibold text-ink'>{t.name}</span>
-                    <span className='text-gray-500'> · </span>
-                    <span className='text-gray-400'>{t.role}</span>
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* ── Reviews ── */}
+      <Reviews />
 
       {/* ── Process ── Horizontal, compact, not a separate section with its own label/title/description */}
       <Section className='bg-white'>
