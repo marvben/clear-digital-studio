@@ -5,9 +5,9 @@ import { Faq } from "@/components/faq";
 import { ArrowRight, Check } from "lucide-react";
 
 export const metadata = {
-  title: "Services — Clear Digital Studio | Web Design & Development for Local Business",
+  title: "Services | Clear Digital Studio | Web Design, Development and SEO",
   description:
-    "Custom website design, development, SEO, and ongoing support for small businesses. Transparent pricing, fast delivery, no contracts.",
+    "Custom website design, development, SEO, and ongoing support for businesses. Clear pricing, fast delivery, and no long-term contracts.",
 };
 
 /* ------------------------------------------------------------------ */
@@ -36,7 +36,7 @@ const services = [
     desc: "Audits, fixes, and monitoring to keep your Core Web Vitals green.",
   },
   {
-    title: "Care & Maintenance",
+    title: "Care and Maintenance",
     desc: "Updates, backups, uptime monitoring, and priority support.",
   },
   {
@@ -81,7 +81,7 @@ const pricingPlans = [
   },
   {
     name: "Custom",
-    price: "Let\u2019s talk",
+    price: "Let's talk",
     desc: "Larger projects with custom functionality or integrations.",
     features: [
       "Unlimited pages",
@@ -133,39 +133,39 @@ const processSteps = [
 const faqItems = [
   {
     q: "How much does a website cost?",
-    a: "Packages start at $1,499 for a 5-page site. Most small business projects fall between $1,500 and $5,000 depending on pages and features. We always provide a fixed quote upfront so there are no surprises.",
+    a: "Our packages start at $1,499 for a 5-page website. Most projects fall between $1,500 and $5,000 depending on the number of pages and features. You always get a fixed quote upfront, so there are no surprises.",
   },
   {
     q: "How long does it take to build a website?",
-    a: "A Starter project takes about 14 days from kickoff to launch. Growth packages take around 21 days. Custom projects vary based on scope, but we agree on a timeline before we start.",
+    a: "A Starter project takes about 14 days from start to launch. Growth packages take around 21 days. Custom projects depend on scope, but we agree on a timeline before any work begins.",
   },
   {
     q: "How many revisions do I get?",
-    a: "Starter packages include two rounds of revisions. Growth packages include unlimited revisions. We work with you until it feels right.",
+    a: "Starter packages include two rounds of revisions. Growth packages include unlimited revisions. We keep working with you until you are happy with the result.",
   },
   {
     q: "Do I need to provide all the content?",
-    a: "You can, but you don\u2019t have to. Growth and Custom packages include professional copywriting. For Starter packages, we provide a content template that makes writing straightforward.",
+    a: "You can, but you do not have to. Growth and Custom packages include professional copywriting. For Starter packages, we give you a content template that makes writing easy.",
   },
   {
     q: "Will my site be optimized for search engines?",
-    a: "Every package includes on-page SEO fundamentals: meta tags, heading structure, image alt text, and fast load times. Growth and Custom packages include deeper local SEO setup.",
+    a: "Yes. Every package includes on-page SEO basics like meta tags, heading structure, image alt text, and fast load times. Growth and Custom packages include a deeper SEO setup.",
   },
   {
     q: "Do you handle hosting?",
-    a: "We recommend and set up hosting for you, or deploy to your existing provider. We typically use Vercel or managed WordPress hosting depending on the project. Hosting costs are separate from build fees.",
+    a: "We set up hosting for you, or we can deploy to your existing provider. We usually use Vercel or managed WordPress hosting depending on the project. Hosting costs are separate from build fees.",
   },
   {
     q: "What happens after the site launches?",
-    a: "We offer Care & Maintenance plans that include updates, backups, monitoring, and priority support. You can also reach out anytime for one-off changes.",
+    a: "We offer Care and Maintenance plans that include updates, backups, monitoring, and priority support. You can also reach out anytime for one-off changes.",
   },
   {
     q: "I already have a website. Can you redesign it?",
-    a: "A lot of our clients come to us with an existing site that\u2019s outdated or underperforming. We audit what you have and build something better, often reusing content and assets that still work.",
+    a: "Absolutely. Many of our clients come to us with an existing site that is outdated or not performing well. We look at what you have and build something better, often reusing content and assets that still work.",
   },
   {
-    q: "Who owns the website when it\u2019s done?",
-    a: "You do. 100% of the design, code, and content. We hand over everything when the project wraps. No lock-in, no proprietary platforms.",
+    q: "Who owns the website when it is done?",
+    a: "You do. 100% of the design, code, and content belongs to you. We hand over everything when the project is complete. No lock-in and no proprietary platforms.",
   },
 ];
 
@@ -178,6 +178,14 @@ export default function ServicesPage() {
     <>
       {/* ===== HERO ===== */}
       <div className="relative overflow-hidden bg-ink">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
         <div className="pointer-events-none absolute -top-40 right-0 h-[500px] w-[500px] rounded-full bg-amber/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-6xl px-6 pb-24 pt-36 md:pb-32 md:pt-44">
@@ -191,8 +199,8 @@ export default function ServicesPage() {
             </h1>
 
             <p className="reveal reveal-delay-1 mt-6 max-w-lg text-[15px] leading-relaxed text-white/60">
-              We handle the full picture so you can run your business. One team
-              for everything from first mockup to post-launch maintenance.
+              We handle everything so you can focus on running your business. One team
+              takes care of it all, from the first mockup to post-launch support.
             </p>
 
             <div className="reveal reveal-delay-2 mt-10 flex items-center gap-6">
@@ -403,7 +411,7 @@ export default function ServicesPage() {
               Ready to get started?
             </h2>
             <p className="reveal reveal-delay-1 mt-2 text-[15px] text-white/60">
-              Book a free 15-minute call. We&apos;ll talk goals, timeline, and
+              Book a free 15-minute call. We will talk about your goals, timeline, and
               budget.
             </p>
           </div>

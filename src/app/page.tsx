@@ -14,13 +14,21 @@ export default function HomePage() {
     <>
       {/* ── Hero ── */}
       <div className='relative overflow-hidden bg-ink'>
+        <div
+          className='pointer-events-none absolute inset-0 opacity-[0.03]'
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+          }}
+        />
         <div className='pointer-events-none absolute -right-64 -top-64 h-[600px] w-[600px] rounded-full bg-amber/[0.07] blur-[120px]' />
         <div className='pointer-events-none absolute -bottom-32 -left-32 h-[400px] w-[400px] rounded-full bg-white/[0.02] blur-[80px]' />
 
         <div className='relative mx-auto max-w-6xl px-6 pb-28 pt-40 md:pb-36 md:pt-48'>
           <div className='grid items-center gap-12 lg:grid-cols-[1fr_1fr]'>
             <div>
-              <p className='text-[13px] font-medium tracking-wide text-white/50'>Web design for local businesses</p>
+              <p className='text-[13px] font-medium tracking-wide text-white/50'>Web design and development</p>
 
               <h1 className='mt-6 font-display text-[clamp(38px,5.8vw,68px)] font-semibold leading-[1.04] tracking-[-0.025em] text-white'>
                 Websites that bring
@@ -31,7 +39,7 @@ export default function HomePage() {
               </h1>
 
               <p className='mt-8 max-w-[420px] text-[15px] leading-[1.7] text-white/55'>
-                We build fast, search-optimized websites for service businesses. Fixed pricing, no contracts, live in under two weeks.
+                We build fast, search-friendly websites for businesses. Fixed pricing, no contracts, and your site goes live in under two weeks.
               </p>
 
               <div className='mt-10 flex items-center gap-4'>
@@ -79,7 +87,7 @@ export default function HomePage() {
               cost money instead of making it.
             </h2>
             <p className='mt-5 max-w-lg text-[15px] leading-relaxed text-gray-400'>
-              Slow load times, no Google visibility, broken on phones. If your site isn&apos;t actively bringing in leads, it&apos;s a liability.
+              Slow loading, hard to find on Google, and broken on phones. If your site is not bringing in leads, it is costing you money.
             </p>
 
             <div className='mt-10 grid gap-y-5 sm:grid-cols-2 sm:gap-x-10'>
@@ -205,22 +213,22 @@ export default function HomePage() {
             {
               n: '01',
               title: 'Talk',
-              desc: '30 minutes on a call. We learn what you need, you learn how we work.',
+              desc: 'We hop on a 30-minute call. You tell us what you need, and we explain how we work.',
             },
             {
               n: '02',
               title: 'Plan',
-              desc: 'Mockups, sitemap, and a clear timeline. Nothing gets built until you approve.',
+              desc: 'We create mockups, a sitemap, and a clear timeline. Nothing gets built until you say go.',
             },
             {
               n: '03',
               title: 'Build',
-              desc: 'We develop, optimize, and test. You review along the way.',
+              desc: 'We design, develop, and test your site. You can review it every step of the way.',
             },
             {
               n: '04',
               title: 'Ship',
-              desc: 'Site goes live. We monitor performance and stay available for tweaks.',
+              desc: 'Your site goes live. We keep an eye on performance and handle any changes you need.',
             },
           ].map((step, i) => (
             <div key={step.n} className={`reveal reveal-delay-${i + 1}`}>
@@ -239,10 +247,10 @@ export default function HomePage() {
             <h2 className='font-display text-[clamp(28px,3.8vw,44px)] font-semibold leading-[1.12] tracking-tight text-white'>
               Let&apos;s get your site
               <br />
-              <em className='italic text-amber-light'>working for you.</em>
+              <span className='text-amber-light'>working for you.</span>
             </h2>
             <p className='mt-5 text-[15px] leading-relaxed text-white/55'>
-              Free 30-minute call. We&apos;ll look at what you have, tell you what&apos;s possible, and be honest about whether we&apos;re the right fit.
+              Book a free 30-minute call. We will look at what you have, tell you what is possible, and give you honest advice about your next steps.
             </p>
             <div className='mt-8 flex flex-wrap items-center justify-center gap-4'>
               <Button asChild className='h-11 rounded-xl bg-white px-5 text-[13px] font-semibold text-ink hover:bg-white/90'>

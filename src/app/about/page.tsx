@@ -6,22 +6,22 @@ import { Section } from "@/components/section";
 import { ArrowRight, Star } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Us — Clear Digital Studio | Built for Small Business",
+  title: "About Us | Clear Digital Studio | Web Design and Development",
   description:
-    "Clear Digital Studio is an Edmonton-based web design agency focused on local service businesses. 100+ projects delivered, 9-day average turnaround, and 98+ PageSpeed scores.",
+    "Clear Digital Studio LLC is a US-based web design and development agency. 100+ projects delivered, fast turnaround, and 98+ PageSpeed scores.",
 };
 
 const team = [
   {
     name: "Benjamin Nwabunwanne",
-    role: "Founder — Technical Lead",
+    role: "Founder, Technical Lead",
     image: "/images/benjamin.jpeg",
     linkedin: "https://www.linkedin.com/in/benjamin-nwabunwanne/",
     bio: "Full-stack developer with 10+ years in web design and development. Obsessed with clean code and sites that convert.",
   },
   {
     name: "Felix Dalyop",
-    role: "Founder — Client Relations",
+    role: "Founder, Client Relations",
     image: "/images/felix.jpeg",
     linkedin: "https://www.linkedin.com/in/felix-dalyop-73002023b/",
     bio: "Keeps projects on track and clients in the loop. The voice you hear when you call.",
@@ -39,32 +39,32 @@ const values = [
   {
     title: "Results over vanity metrics",
     description:
-      "We care about calls and bookings, not impressions. If your site looks great but nobody contacts you, we haven't done our job.",
+      "We care about calls and bookings, not just page views. If your site looks great but nobody contacts you, we have not done our job.",
   },
   {
     title: "Ship in days, not months",
     description:
-      "Most projects go live in under two weeks. You have a business to run — we don't drag things out.",
+      "Most projects go live in under two weeks. You have a business to run, so we do not drag things out.",
   },
   {
     title: "Prices you know upfront",
     description:
-      "Fixed quotes before we start. No hourly billing, no surprise invoices, no scope creep.",
+      "You get a fixed quote before we start. No hourly billing, no surprise invoices, and no hidden fees.",
   },
   {
-    title: "Built for local markets",
+    title: "Built to bring in customers",
     description:
-      "We know how local customers search and what makes them pick up the phone. That's baked into every site.",
+      "We know how people search online and what makes them reach out. That thinking goes into every site we build.",
   },
   {
     title: "No black boxes",
     description:
-      "You see every step. No jargon, no mystery processes, no waiting weeks for a status update.",
+      "You see every step of the process. No confusing jargon, no mystery workflows, and no waiting weeks for updates.",
   },
   {
     title: "We stick around after launch",
     description:
-      "Updates, tweaks, questions — we're here. We don't hand off a site and disappear.",
+      "Need updates, tweaks, or have questions? We are here. We do not hand off a site and disappear.",
   },
 ];
 
@@ -94,10 +94,9 @@ export default function AboutPage() {
             </h1>
 
             <p className="reveal reveal-delay-2 mx-auto mt-6 max-w-lg text-[15px] leading-relaxed text-white/60">
-              We&apos;re based in Edmonton and we work with service businesses
-              — trades, clinics, cleaners, contractors. If you serve your
-              local community, we build the site that brings customers to
-              your door.
+              We work with businesses of all kinds, from local shops to
+              ecommerce brands. If you need a website that actually brings
+              in customers, we build it.
             </p>
           </div>
         </div>
@@ -124,22 +123,19 @@ export default function AboutPage() {
           <div className="reveal reveal-delay-1">
             <div className="space-y-5 text-[15px] leading-relaxed text-gray-500">
               <p>
-                We kept seeing the same thing. Local businesses — the ones
-                that actually keep neighbourhoods running — were paying
+                We kept seeing the same problem. Business owners were paying
                 agencies thousands of dollars and ending up with slow,
-                generic sites that didn&apos;t generate a single lead. It
-                didn&apos;t sit right with us.
+                generic websites that did not bring in a single lead. That
+                did not sit right with us.
               </p>
               <p>
-                So we decided to specialize. Plumbers, clinics, cleaners,
-                landscapers, contractors — people who do real work for real
-                customers. We learned what their clients care about, how they
-                search, and what makes them pick up the phone. Then we built
-                a process around that.
+                So we decided to focus on what matters. We learned what
+                customers care about, how they search online, and what makes
+                them reach out. Then we built a process around that.
               </p>
               <p>
-                Over a hundred projects later, we&apos;re still doing the
-                same thing: building sites that load fast, rank well, and
+                Over a hundred projects later, we are still doing the same
+                thing: building websites that load fast, rank well, and
                 actually bring in business. No fluff. No jargon. Just good
                 work for good businesses.
               </p>
@@ -246,7 +242,7 @@ export default function AboutPage() {
               with communication. He met all the deadlines and was willing to
               continue to work together for additional changes.&rdquo;
             </blockquote>
-            <p className="mt-4 text-[13px] font-medium text-gray-400">WordPress Website Back-End Design &mdash; via Upwork</p>
+            <p className="mt-4 text-[13px] font-medium text-gray-400">WordPress Website Back-End Design, via Upwork</p>
             <p className="reveal reveal-delay-1 mt-10 text-[13px] text-gray-400">
               <Link
                 href="/portfolio"
@@ -269,8 +265,8 @@ export default function AboutPage() {
                 Want to work together?
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-white/60">
-                Book a free 30-minute call. We&apos;ll look at your current
-                site and give you an honest recommendation — no pressure.
+                Book a free 30-minute call. We will look at your current
+                site and give you honest advice. No pressure, no obligation.
               </p>
             </div>
             <Button

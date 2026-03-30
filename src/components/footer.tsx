@@ -10,7 +10,7 @@ export function Footer() {
             <Link href='/'>
               <Image src='/images/logo.png' alt='Clear Digital Studio' width={160} height={40} className='h-7 w-auto' />
             </Link>
-            <p className='mt-2 max-w-xs text-[13px] leading-relaxed text-gray-500'>Web design and growth for local service businesses. Edmonton-based, working across Canada and the US.</p>
+            <p className='mt-2 max-w-xs text-[13px] leading-relaxed text-gray-500'>Web design and development for businesses. Clear Digital Studio LLC, United States.</p>
           </div>
 
           <div className='flex flex-wrap gap-x-14 gap-y-6'>
@@ -35,7 +35,6 @@ export function Footer() {
                 <a href='mailto:hello@cleardigitalstudio.com' className='transition-colors hover:text-ink'>
                   hello@cleardigitalstudio.com
                 </a>
-                <span>Edmonton, AB</span>
               </div>
             </div>
           </div>

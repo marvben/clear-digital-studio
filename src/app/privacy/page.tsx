@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Section } from "@/components/section";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Clear Digital Studio",
+  title: "Privacy Policy | Clear Digital Studio",
   description:
     "Privacy Policy for Clear Digital Studio. Learn how we collect, use, and protect your personal information.",
 };
@@ -38,7 +38,7 @@ export default function PrivacyPage() {
       <Section className="bg-white">
         <div className="mx-auto max-w-3xl">
           <p className="text-[15px] leading-relaxed text-gray-600 mb-4">
-            Clear Digital Studio (&quot;we,&quot; &quot;us,&quot; or
+            Clear Digital Studio LLC (&quot;we,&quot; &quot;us,&quot; or
             &quot;our&quot;) operates the website cleardigitalstudio.com. This
             Privacy Policy explains how we collect, use, and protect your
             personal information when you visit our website or use our services.
@@ -254,7 +254,7 @@ export default function PrivacyPage() {
               </a>
             </li>
             <li>
-              <strong>Location:</strong> Edmonton, Alberta, Canada
+              <strong>Location:</strong> United States
             </li>
           </ul>
         </div>

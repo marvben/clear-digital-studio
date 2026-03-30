@@ -5,10 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/section";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import portfolioData from "@/data/portfolio.json";
 
-const categories = ["All", "Trades", "Health", "Cleaning", "Beauty"];
+const categories = ["All", "Agency", "Business", "Ecommerce", "Organization", "Creative"];
 
 export default function PortfolioPage() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -16,7 +16,11 @@ export default function PortfolioPage() {
   const filteredItems =
     activeFilter === "All"
       ? portfolioData
-      : portfolioData.filter((item) => item.category === activeFilter);
+      : portfolioData.filter((item) =>
+          Array.isArray(item.category)
+            ? item.category.includes(activeFilter)
+            : item.category === activeFilter
+        );
 
   const featuredItems = portfolioData.filter((item) => item.featured);
 
@@ -89,8 +93,7 @@ export default function PortfolioPage() {
           {filteredItems.map((item, i) => (
             <div
               key={item.id}
-              className="reveal group"
-              style={{ animationDelay: `${i * 80}ms` }}
+              className="group"
             >
               <div className="aspect-[4/3] overflow-hidden rounded-lg bg-gray-100">
                 <Image
@@ -117,6 +120,16 @@ export default function PortfolioPage() {
                 <p className="mt-2 text-[12px] text-gray-500">
                   {item.services}
                 </p>
+                {item.url && (
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex items-center gap-1 text-[12px] font-medium text-amber hover:text-amber-light transition-colors"
+                  >
+                    Visit site <ExternalLink className="h-3 w-3" />
+                  </a>
+                )}
               </div>
             </div>
           ))}

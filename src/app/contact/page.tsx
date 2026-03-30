@@ -113,7 +113,7 @@ export default function ContactPage() {
             action: 'contact_submit',
           });
         } catch {
-          // reCAPTCHA failed (bad key, network, etc.) — continue without token
+          // reCAPTCHA failed (bad key, network, etc.) - continue without token
         }
       }
 
@@ -142,8 +142,17 @@ export default function ContactPage() {
       {RECAPTCHA_SITE_KEY && <Script src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`} onLoad={onRecaptchaLoad} />}
 
       {/* ── Hero ── */}
-      <section className='bg-ink pt-36 pb-16'>
-        <div className='mx-auto max-w-6xl px-6'>
+      <section className='relative overflow-hidden bg-ink pt-36 pb-16'>
+        <div
+          className='pointer-events-none absolute inset-0 opacity-[0.03]'
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+          }}
+        />
+        <div className='pointer-events-none absolute -top-40 right-0 h-[500px] w-[500px] rounded-full bg-amber/10 blur-3xl' />
+        <div className='relative mx-auto max-w-6xl px-6'>
           <h1 className='reveal font-display text-4xl font-semibold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl'>Get in touch.</h1>
           <p className='reveal reveal-delay-1 mt-4 text-lg text-white/60'>We reply within one business day.</p>
 
@@ -245,7 +254,7 @@ export default function ContactPage() {
                     <label htmlFor='phone' className='mb-1.5 block text-sm font-medium text-ink'>
                       Phone <span className='text-gray-500'>(optional)</span>
                     </label>
-                    <Input id='phone' type='tel' placeholder='(780) 555-0100' className='h-10 rounded-lg' {...register('phone')} />
+                    <Input id='phone' type='tel' placeholder='(512) 555-0198' className='h-10 rounded-lg' {...register('phone')} />
                   </div>
                 </div>
 
@@ -347,8 +356,8 @@ export default function ContactPage() {
                   <Phone className='mt-0.5 size-4 shrink-0 text-amber' />
                   <div>
                     <p className='text-xs font-medium uppercase tracking-wider text-gray-400'>Phone</p>
-                    <a href='tel:+17805550100' className='mt-0.5 block text-sm font-semibold text-ink hover:text-amber transition-colors'>
-                      +1 (780) 555-0100
+                    <a href='tel:+15125550198' className='mt-0.5 block text-sm font-semibold text-ink hover:text-amber transition-colors'>
+                      +1 (512) 555-0198
                     </a>
                   </div>
                 </div>
@@ -365,7 +374,7 @@ export default function ContactPage() {
               <div className='mt-8 rounded-xl bg-ink p-5'>
                 <p className='text-sm font-semibold text-white'>Prefer a call?</p>
                 <p className='mt-1.5 text-xs leading-relaxed text-white/60'>Book a free 15-minute consultation. No pressure, just honest advice about your project.</p>
-                <a href='tel:+17805550100' className='mt-4 inline-flex items-center gap-2 text-xs font-semibold text-amber transition-colors hover:text-amber-light'>
+                <a href='tel:+15125550198' className='mt-4 inline-flex items-center gap-2 text-xs font-semibold text-amber transition-colors hover:text-amber-light'>
                   Call us now
                   <ArrowRight className='size-3' />
                 </a>
@@ -396,8 +405,8 @@ export default function ContactPage() {
           </p>
           <p className='reveal reveal-delay-1 mt-6 text-sm text-white/50'>
             Scroll up to send us a message, or call{' '}
-            <a href='tel:+17805550100' className='text-white/70 hover:text-white transition-colors'>
-              +1 (780) 555-0100
+            <a href='tel:+15125550198' className='text-white/70 hover:text-white transition-colors'>
+              +1 (512) 555-0198
             </a>
           </p>
         </div>

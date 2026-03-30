@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Section } from "@/components/section";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — Clear Digital Studio",
+  title: "Terms of Service | Clear Digital Studio",
   description:
-    "Terms of Service for Clear Digital Studio, an Edmonton-based web design agency for local service businesses.",
+    "Terms of Service for Clear Digital Studio, a web design and development agency.",
 };
 
 export default function TermsOfServicePage() {
@@ -36,7 +36,7 @@ export default function TermsOfServicePage() {
           {/* Agreement to Terms */}
           <h2 className={headingClass}>1. Agreement to Terms</h2>
           <p className={paragraphClass}>
-            By engaging Clear Digital Studio (&quot;we,&quot; &quot;us,&quot; or
+            By engaging Clear Digital Studio LLC (&quot;we,&quot; &quot;us,&quot; or
             &quot;our&quot;) for any services, you (&quot;Client,&quot;
             &quot;you,&quot; or &quot;your&quot;) agree to be bound by these
             Terms of Service. If you do not agree to these terms, please do not
@@ -48,9 +48,9 @@ export default function TermsOfServicePage() {
           {/* Services */}
           <h2 className={headingClass}>2. Services</h2>
           <p className={paragraphClass}>
-            Clear Digital Studio is an Edmonton-based web design agency
-            specializing in digital solutions for local service businesses. Our
-            services include:
+            Clear Digital Studio is a web design and development agency
+            specializing in digital solutions for businesses. Our services
+            include:
           </p>
           <ul className={listClass}>
             <li>Custom website design and development</li>
@@ -253,10 +253,10 @@ export default function TermsOfServicePage() {
           <h2 className={headingClass}>11. Governing Law</h2>
           <p className={paragraphClass}>
             These Terms of Service shall be governed by and construed in
-            accordance with the laws of the Province of Alberta and the federal
-            laws of Canada applicable therein. Any disputes arising from these
-            terms or our services shall be subject to the exclusive jurisdiction
-            of the courts located in Edmonton, Alberta, Canada.
+            accordance with the laws of the United States. Any disputes arising
+            from these terms or our services shall be resolved through
+            good-faith negotiation or, if necessary, through binding
+            arbitration.
           </p>
 
           {/* Changes to Terms */}
@@ -275,28 +275,27 @@ export default function TermsOfServicePage() {
             If you have any questions about these Terms of Service, please
             contact us:
           </p>
-          <ul className={`${listClass} list-none pl-0`}>
+          <ul className="list-disc pl-5 space-y-1 text-[15px] leading-relaxed text-gray-600 mb-4">
             <li>
-              <strong className="text-ink">Clear Digital Studio</strong>
-            </li>
-            <li>Edmonton, Alberta, Canada</li>
-            <li>
-              Email:{" "}
+              <strong>Email:</strong>{" "}
               <a
                 href="mailto:hello@cleardigitalstudio.com"
-                className="text-amber underline hover:text-amber-dark transition-colors"
+                className="text-amber underline underline-offset-2 hover:text-amber/80 transition-colors"
               >
                 hello@cleardigitalstudio.com
               </a>
             </li>
             <li>
-              Website:{" "}
+              <strong>Website:</strong>{" "}
               <a
                 href="https://cleardigitalstudio.com"
-                className="text-amber underline hover:text-amber-dark transition-colors"
+                className="text-amber underline underline-offset-2 hover:text-amber/80 transition-colors"
               >
                 cleardigitalstudio.com
               </a>
+            </li>
+            <li>
+              <strong>Location:</strong> United States
             </li>
           </ul>
         </div>

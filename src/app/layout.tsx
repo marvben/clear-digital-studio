@@ -27,8 +27,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata = {
-  title: 'Clear Digital Studio — Web Design for Local Businesses',
-  description: 'We build fast, professional websites for service businesses. Plumbers, clinics, cleaners, contractors — get online properly and get more calls.',
+  title: 'Clear Digital Studio | Web Design and Development',
+  description: 'We build fast, professional websites for businesses. Custom design, development, SEO, and ongoing support. Get online and get more customers.',
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
