@@ -1,3 +1,4 @@
+import Script from 'next/script';
 import { Cormorant_Garamond, Syne, DM_Sans } from 'next/font/google';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
@@ -44,6 +45,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='en' className={`${cormorant.variable} ${syne.variable} ${dmSans.variable}`}>
       <body>
+        <Script src='https://www.googletagmanager.com/gtag/js?id=G-22MN48C27S' strategy='afterInteractive' />
+        <Script id='google-analytics' strategy='afterInteractive'>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-22MN48C27S');
+          `}
+        </Script>
         <Navbar />
         <main>{children}</main>
         <Footer />
