@@ -17,8 +17,7 @@ export default function HomePage() {
         <div
           className='pointer-events-none absolute inset-0 opacity-[0.03]'
           style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
+            backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
             backgroundSize: '60px 60px',
           }}
         />
@@ -26,11 +25,11 @@ export default function HomePage() {
         <div className='pointer-events-none absolute -bottom-32 -left-32 h-[400px] w-[400px] rounded-full bg-white/[0.02] blur-[80px]' />
 
         <div className='relative mx-auto max-w-6xl px-6 pb-28 pt-40 md:pb-36 md:pt-48'>
-          <div className='grid items-center gap-12 lg:grid-cols-[1fr_1fr]'>
+          <div className='grid items-center gap-12 lg:grid-cols-[6fr_4fr]'>
             <div>
               <p className='text-[13px] font-medium tracking-wide text-white/50'>Web design and development</p>
 
-              <h1 className='mt-6 font-display text-[clamp(38px,5.8vw,68px)] font-semibold leading-[1.04] tracking-[-0.025em] text-white'>
+              <h1 className='mt-6 font-display text-[clamp(33px,5vw,56px)] font-semibold leading-[1.04] tracking-[-0.025em] text-white'>
                 Websites that bring
                 <br />
                 in customers.

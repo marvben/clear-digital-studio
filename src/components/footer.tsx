@@ -1,7 +1,16 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { getLocale } from '@/data/getLocale';
+
+type Locale = {
+  companyType: string;
+  name: string;
+};
 
 export function Footer() {
+  const { companyType, name } = getLocale() as Locale;
   return (
     <footer className='border-t border-gray-100 bg-white'>
       <div className='mx-auto max-w-6xl px-6 py-12'>
@@ -10,7 +19,9 @@ export function Footer() {
             <Link href='/'>
               <Image src='/images/logo.png' alt='Clear Digital Studio' width={160} height={40} className='h-7 w-auto' />
             </Link>
-            <p className='mt-2 max-w-xs text-[13px] leading-relaxed text-gray-500'>Web design and development for businesses. Clear Digital Studio LLC, United States.</p>
+            <p className='mt-2 max-w-xs text-[13px] leading-relaxed text-gray-500'>
+              Web design and development for businesses. Clear Digital Studio {companyType}, {name}.
+            </p>
           </div>
 
           <div className='flex flex-wrap gap-x-14 gap-y-6'>

@@ -11,12 +11,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { Section } from '@/components/section';
 import { Faq } from '@/components/faq';
 import { ArrowRight, Check, Mail, Phone, Clock } from 'lucide-react';
+import { getLocale } from '@/data/getLocale';
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-
-const projectTypes = ['Brand new website', 'Website redesign', 'WordPress', 'Shopify', 'Landing Page', 'Sales Page', 'Local SEO', 'Speed optimization', 'Maintenance', 'Growth', 'Not sure yet'];
-
-const budgetRanges = ['Under $1,500', '$1,500 - $3,000', '$3,000 - $6,000', '$6,000+', 'Not sure yet'];
 
 const faqItems = [
   {
@@ -65,10 +62,28 @@ interface ContactFormData {
   website: string;
 }
 
+type Locale = {
+  priceRate: number;
+  currencySymbol: string;
+  phone: string;
+  formatMoney: (value: number) => string;
+};
+
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState('');
   const [recaptchaReady, setRecaptchaReady] = useState(false);
+  const { priceRate, currencySymbol, phone, formatMoney } = getLocale() as Locale;
+
+  const projectTypes = ['Brand new website', 'Website redesign', 'WordPress', 'Shopify', 'Landing Page', 'Sales Page', 'Local SEO', 'Speed optimization', 'Maintenance', 'Growth', 'Not sure yet'];
+
+  const budgetRanges = [
+    `Under  ${formatMoney(priceRate * 1500)}`,
+    `${formatMoney(Math.floor(priceRate * 1500))} - ${formatMoney(Math.floor(priceRate * 3000))}`,
+    `${formatMoney(Math.floor(priceRate * 3000))} - ${formatMoney(Math.floor(priceRate * 6000))}`,
+    `${formatMoney(Math.floor(priceRate * 6000))}+`,
+    'Not sure yet',
+  ];
 
   const {
     register,
@@ -146,8 +161,7 @@ export default function ContactPage() {
         <div
           className='pointer-events-none absolute inset-0 opacity-[0.03]'
           style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
+            backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
             backgroundSize: '60px 60px',
           }}
         />
@@ -356,8 +370,8 @@ export default function ContactPage() {
                   <Phone className='mt-0.5 size-4 shrink-0 text-amber' />
                   <div>
                     <p className='text-xs font-medium uppercase tracking-wider text-gray-400'>Phone</p>
-                    <a href='tel:+15125550198' className='mt-0.5 block text-sm font-semibold text-ink hover:text-amber transition-colors'>
-                      +1 (512) 555-0198
+                    <a href={`tel:${phone.split(' ').join('')}`} className='mt-0.5 block text-sm font-semibold text-ink hover:text-amber transition-colors'>
+                      {phone}
                     </a>
                   </div>
                 </div>
@@ -405,8 +419,8 @@ export default function ContactPage() {
           </p>
           <p className='reveal reveal-delay-1 mt-6 text-sm text-white/50'>
             Scroll up to send us a message, or call{' '}
-            <a href='tel:+15125550198' className='text-white/70 hover:text-white transition-colors'>
-              +1 (512) 555-0198
+            <a href={`tel:${phone.split(' ').join('')}`} className='text-white/70 hover:text-white transition-colors'>
+              {phone}
             </a>
           </p>
         </div>

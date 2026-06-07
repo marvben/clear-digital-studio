@@ -3,7 +3,8 @@ import { Cormorant_Garamond, Syne, DM_Sans } from 'next/font/google';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { RevealProvider } from '@/components/reveal-provider';
-import './globals.css';
+
+import '@/app/globals.css';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -54,6 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', 'G-22MN48C27S');
           `}
         </Script>
+
         <Navbar />
         <main>{children}</main>
         <Footer />
