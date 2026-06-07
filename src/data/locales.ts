@@ -6,22 +6,10 @@ export interface CountryData {
   address: string;
   companyType: string;
   phone: string;
-  priceRate: number;
   formatMoney?: (amount: number) => string;
 }
 
 export const COUNTRIES: CountryData[] = [
-  {
-    name: 'Nigeria',
-    countryCode: 'NG',
-    currency: 'NGN',
-    currencySymbol: '₦',
-    address: 'Lagos',
-    companyType: 'Ltd',
-    phone: '+234 707 159 1579',
-    priceRate: 300,
-    formatMoney: (amount) => `₦${amount.toLocaleString()}`,
-  },
   {
     name: 'United States',
     countryCode: 'US',
@@ -30,8 +18,18 @@ export const COUNTRIES: CountryData[] = [
     address: 'Wyoming, Delaware, Nevada',
     companyType: 'LLC',
     phone: '+1 555 123 4567',
-    priceRate: 1,
-    formatMoney: (amount) => `$${amount.toLocaleString()}`,
+
+    formatMoney: (amount) => `$${(Math.floor(amount * 1) - 1).toLocaleString()}`,
+  },
+  {
+    name: 'Nigeria',
+    countryCode: 'NG',
+    currency: 'NGN',
+    currencySymbol: '₦',
+    address: 'Lagos',
+    companyType: 'Ltd',
+    phone: '+234 707 159 1579',
+    formatMoney: (amount) => `₦${(Math.floor(amount * 300) - 1).toLocaleString()}`,
   },
   {
     name: 'United Kingdom',
@@ -41,7 +39,6 @@ export const COUNTRIES: CountryData[] = [
     address: 'Manchester',
     companyType: 'Ltd',
     phone: '+44 161 123 4567',
-    priceRate: 0.75,
-    formatMoney: (amount) => `£${amount.toLocaleString()}`,
+    formatMoney: (amount) => `£${(Math.floor(amount * 0.75) - 1).toLocaleString()}`,
   },
 ];

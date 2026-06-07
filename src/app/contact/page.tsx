@@ -63,8 +63,6 @@ interface ContactFormData {
 }
 
 type Locale = {
-  priceRate: number;
-  currencySymbol: string;
   phone: string;
   formatMoney: (value: number) => string;
 };
@@ -73,17 +71,11 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState('');
   const [recaptchaReady, setRecaptchaReady] = useState(false);
-  const { priceRate, currencySymbol, phone, formatMoney } = getLocale() as Locale;
+  const { phone, formatMoney } = getLocale() as Locale;
 
   const projectTypes = ['Brand new website', 'Website redesign', 'WordPress', 'Shopify', 'Landing Page', 'Sales Page', 'Local SEO', 'Speed optimization', 'Maintenance', 'Growth', 'Not sure yet'];
 
-  const budgetRanges = [
-    `Under  ${formatMoney(priceRate * 1500)}`,
-    `${formatMoney(Math.floor(priceRate * 1500))} - ${formatMoney(Math.floor(priceRate * 3000))}`,
-    `${formatMoney(Math.floor(priceRate * 3000))} - ${formatMoney(Math.floor(priceRate * 6000))}`,
-    `${formatMoney(Math.floor(priceRate * 6000))}+`,
-    'Not sure yet',
-  ];
+  const budgetRanges = [`Under  ${formatMoney(1500)}`, `${formatMoney(1500)} - ${formatMoney(3000)}`, `${formatMoney(3000)} - ${formatMoney(6000)}`, `${formatMoney(6000)}+`, 'Not sure yet'];
 
   const {
     register,
@@ -301,8 +293,8 @@ export default function ContactPage() {
                       {...register('budget')}
                     >
                       <option value=''>Select a range</option>
-                      {budgetRanges.map((range) => (
-                        <option key={range} value={range}>
+                      {budgetRanges.map((range, idx) => (
+                        <option key={idx} value={range}>
                           {range}
                         </option>
                       ))}

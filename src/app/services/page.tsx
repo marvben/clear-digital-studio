@@ -6,12 +6,9 @@ import { ArrowRight, Check } from 'lucide-react';
 import { getLocale } from '@/data/getLocale';
 
 type Locale = {
-  companyType: string;
-  name: string;
-  priceRate: number;
   formatMoney: (value: number) => string;
 };
-const { companyType, name, formatMoney, priceRate } = getLocale() as Locale;
+const { formatMoney } = getLocale() as Locale;
 
 export const metadata = {
   title: 'Services | Clear Digital Studio | Web Design, Development and SEO',
@@ -119,7 +116,7 @@ const processSteps = [
 const faqItems = [
   {
     q: 'How much does a website cost?',
-    a: `Our packages start at ${formatMoney(1500 * priceRate)} for a 5-page website. Most projects fall between ${formatMoney(3000 * priceRate)} and ${formatMoney(5000 * priceRate)} depending on the number of pages and features. You always get a fixed quote upfront, so there are no surprises.`,
+    a: `Our packages start at ${formatMoney(1500)} for a 5-page website. Most projects fall between ${formatMoney(3000)} and ${formatMoney(5000)} depending on the number of pages and features. You always get a fixed quote upfront, so there are no surprises.`,
   },
   {
     q: 'How long does it take to build a website?',
@@ -242,9 +239,7 @@ export default function ServicesPage() {
 
                   <h3 className={`font-heading text-[15px] font-semibold ${dark ? 'text-white' : 'text-ink'}`}>{plan.name}</h3>
                   <div className='mt-4'>
-                    <span className={`font-display text-4xl font-semibold tracking-tight ${dark ? 'text-white' : 'text-ink'}`}>
-                      {plan.price > 0 ? formatMoney(plan.price * priceRate) : "Let's talk"}
-                    </span>
+                    <span className={`font-display text-4xl font-semibold tracking-tight ${dark ? 'text-white' : 'text-ink'}`}>{plan.price > 0 ? formatMoney(plan.price) : "Let's talk"}</span>
                     {plan.price > 0 && <span className={`ml-1.5 text-[13px] ${dark ? 'text-white/60' : 'text-gray-400'}`}>one-time</span>}
                   </div>
                   <p className={`mt-3 text-[13px] leading-relaxed ${dark ? 'text-white/70' : 'text-gray-400'}`}>{plan.desc}</p>
