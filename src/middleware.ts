@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(req: NextRequest) {
-  const country = req.geo?.country || req.headers.get('x-vercel-ip-country') || 'US';
+  const country = req.headers.get('x-vercel-ip-country') || req.headers.get('cf-ipcountry') || 'US';
 
   const res = NextResponse.next();
 
