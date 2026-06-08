@@ -8,9 +8,10 @@ type Locale = {
   companyType: string;
   name: string;
 };
-const { companyType, name } = getLocale() as Locale;
 
 export function Footer() {
+  const { companyType, name } = getLocale() as Locale;
+
   return (
     <footer className='border-t border-gray-100 bg-white'>
       <div className='mx-auto max-w-6xl px-6 py-12'>

@@ -18,8 +18,11 @@ export const COUNTRIES: CountryData[] = [
     address: 'Wyoming, Delaware, Nevada',
     companyType: 'LLC',
     phone: '+1 555 123 4567',
+    formatMoney: (amount: number): string => {
+      const value = Math.round(Number(amount)) - 1;
 
-    formatMoney: (amount) => `$${(Math.floor(amount * 1) - 1).toLocaleString()}`,
+      return `$${value.toLocaleString()}`;
+    },
   },
   {
     name: 'Nigeria',
@@ -29,7 +32,11 @@ export const COUNTRIES: CountryData[] = [
     address: 'Lagos',
     companyType: 'Ltd',
     phone: '+234 707 159 1579',
-    formatMoney: (amount) => `₦${(Math.floor(amount * 300) - 1).toLocaleString()}`,
+    formatMoney: (amount: number): string => {
+      const value = Math.round(Number(amount) * 300) - 1;
+
+      return `₦${value.toLocaleString()}`;
+    },
   },
   {
     name: 'United Kingdom',
@@ -39,6 +46,9 @@ export const COUNTRIES: CountryData[] = [
     address: 'Manchester',
     companyType: 'Ltd',
     phone: '+44 161 123 4567',
-    formatMoney: (amount) => `£${(Math.floor(amount * 0.75) - 1).toLocaleString()}`,
+    formatMoney: (amount: number): string => {
+      const value = Math.round(Number(amount) * 0.75) - 1;
+      return `£${value.toLocaleString()}`;
+    },
   },
 ];

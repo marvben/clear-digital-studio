@@ -2,13 +2,14 @@ import type { Metadata } from 'next';
 import { Section } from '@/components/section';
 import { getLocale } from '@/lib/getLocale';
 type Locale = { name: string; companyType: string };
-const { name, companyType } = getLocale() as Locale;
+
 export const metadata: Metadata = {
   title: 'Privacy Policy | Clear Digital Studio',
   description: 'Privacy Policy for Clear Digital Studio. Learn how we collect, use, and protect your personal information.',
 };
 
 export default function PrivacyPage() {
+  const { name, companyType } = getLocale() as Locale;
   return (
     <>
       {/* Hero */}

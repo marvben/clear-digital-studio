@@ -10,5 +10,7 @@ export const getLocale = () => {
     code = Cookies.get('country') ?? 'US';
   }
 
-  return COUNTRIES.find((c) => c.countryCode === code) || COUNTRIES[0];
+  const countryData = COUNTRIES.find((c) => c.countryCode === code);
+
+  return countryData || COUNTRIES[0];
 };

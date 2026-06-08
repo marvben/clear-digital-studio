@@ -8,155 +8,156 @@ import { getLocale } from '@/lib/getLocale';
 type Locale = {
   formatMoney: (value: number) => string;
 };
-const { formatMoney } = getLocale() as Locale;
 
 export const metadata = {
   title: 'Services | Clear Digital Studio | Web Design, Development and SEO',
   description: 'Custom website design, development, SEO, and ongoing support for businesses. Clear pricing, fast delivery, and no long-term contracts.',
 };
 
-/* ------------------------------------------------------------------ */
-/*  Data                                                               */
-/* ------------------------------------------------------------------ */
-
-const services = [
-  {
-    title: 'Website Design',
-    desc: 'Custom layouts built around your brand and your customers.',
-  },
-  {
-    title: 'Web Development',
-    desc: 'Clean, fast code with modern frameworks. Under 2-second loads.',
-  },
-  {
-    title: 'WordPress',
-    desc: 'CMS sites you can actually update yourself without breaking anything.',
-  },
-  {
-    title: 'Local SEO',
-    desc: 'Show up when nearby customers search for what you do.',
-  },
-  {
-    title: 'Speed Optimization',
-    desc: 'Audits, fixes, and monitoring to keep your Core Web Vitals green.',
-  },
-  {
-    title: 'Care and Maintenance',
-    desc: 'Updates, backups, uptime monitoring, and priority support.',
-  },
-  {
-    title: 'Local Growth',
-    desc: 'Landing pages, forms, and conversion tracking that bring in leads.',
-  },
-];
-
-const pricingPlans = [
-  {
-    name: 'Starter',
-    price: 1500,
-    desc: 'A clean, professional site for businesses getting started online.',
-    features: ['Up to 5 pages', 'Mobile-responsive design', 'On-page SEO setup', 'Contact forms', 'Google Analytics integration', '14-day delivery'],
-    cta: 'Get started',
-    href: '/contact',
-    featured: false,
-  },
-  {
-    name: 'Growth',
-    price: 3000,
-    desc: 'For businesses ready to compete and attract more customers.',
-    features: ['Everything in Starter', 'Up to 7 pages', 'Local SEO setup', 'Professional copywriting', 'Speed optimization', 'Unlimited revisions', '21-day delivery'],
-    cta: 'Get started',
-    href: '/contact',
-    featured: true,
-  },
-  {
-    name: 'Custom',
-    price: 0,
-    desc: 'Larger projects with custom functionality or integrations.',
-    features: ['Unlimited pages', 'Custom functionality', 'E-commerce support', 'API integrations', 'Dedicated project manager', 'Timeline based on scope'],
-    cta: 'Book a call',
-    href: '/contact',
-    featured: false,
-  },
-];
-
-const processSteps = [
-  {
-    num: '01',
-    title: 'Discover',
-    desc: 'We learn about your business, your customers, and what a win looks like.',
-  },
-  {
-    num: '02',
-    title: 'Plan',
-    desc: 'Sitemap, content direction, and design approach locked in before any code.',
-  },
-  {
-    num: '03',
-    title: 'Design',
-    desc: 'You review mockups and we refine until the look and feel is right.',
-  },
-  {
-    num: '04',
-    title: 'Build',
-    desc: 'Fast, accessible code with mobile-first responsiveness throughout.',
-  },
-  {
-    num: '05',
-    title: 'Launch',
-    desc: 'Final testing, your sign-off, and we handle all the deployment details.',
-  },
-  {
-    num: '06',
-    title: 'Support',
-    desc: 'We stick around for updates, maintenance, and whatever comes next.',
-  },
-];
-
-const faqItems = [
-  {
-    q: 'How much does a website cost?',
-    a: `Our packages start at ${formatMoney(1500)} for a 5-page website. Most projects fall between ${formatMoney(3000)} and ${formatMoney(5000)} depending on the number of pages and features. You always get a fixed quote upfront, so there are no surprises.`,
-  },
-  {
-    q: 'How long does it take to build a website?',
-    a: 'A Starter project takes about 14 days from start to launch. Growth packages take around 21 days. Custom projects depend on scope, but we agree on a timeline before any work begins.',
-  },
-  {
-    q: 'How many revisions do I get?',
-    a: 'Starter packages include two rounds of revisions. Growth packages include unlimited revisions. We keep working with you until you are happy with the result.',
-  },
-  {
-    q: 'Do I need to provide all the content?',
-    a: 'You can, but you do not have to. Growth and Custom packages include professional copywriting. For Starter packages, we give you a content template that makes writing easy.',
-  },
-  {
-    q: 'Will my site be optimized for search engines?',
-    a: 'Yes. Every package includes on-page SEO basics like meta tags, heading structure, image alt text, and fast load times. Growth and Custom packages include a deeper SEO setup.',
-  },
-  {
-    q: 'Do you handle hosting?',
-    a: 'We set up hosting for you, or we can deploy to your existing provider. We usually use Vercel or managed WordPress hosting depending on the project. Hosting costs are separate from build fees.',
-  },
-  {
-    q: 'What happens after the site launches?',
-    a: 'We offer Care and Maintenance plans that include updates, backups, monitoring, and priority support. You can also reach out anytime for one-off changes.',
-  },
-  {
-    q: 'I already have a website. Can you redesign it?',
-    a: 'Absolutely. Many of our clients come to us with an existing site that is outdated or not performing well. We look at what you have and build something better, often reusing content and assets that still work.',
-  },
-  {
-    q: 'Who owns the website when it is done?',
-    a: 'You do. 100% of the design, code, and content belongs to you. We hand over everything when the project is complete. No lock-in and no proprietary platforms.',
-  },
-];
-
-/* ------------------------------------------------------------------ */
-/*  Page                                                               */
-/* ------------------------------------------------------------------ */
-
 export default function ServicesPage() {
+  const { formatMoney } = getLocale() as Locale;
+
+  /* ------------------------------------------------------------------ */
+  /*  Data                                                               */
+  /* ------------------------------------------------------------------ */
+
+  const services = [
+    {
+      title: 'Website Design',
+      desc: 'Custom layouts built around your brand and your customers.',
+    },
+    {
+      title: 'Web Development',
+      desc: 'Clean, fast code with modern frameworks. Under 2-second loads.',
+    },
+    {
+      title: 'WordPress',
+      desc: 'CMS sites you can actually update yourself without breaking anything.',
+    },
+    {
+      title: 'Local SEO',
+      desc: 'Show up when nearby customers search for what you do.',
+    },
+    {
+      title: 'Speed Optimization',
+      desc: 'Audits, fixes, and monitoring to keep your Core Web Vitals green.',
+    },
+    {
+      title: 'Care and Maintenance',
+      desc: 'Updates, backups, uptime monitoring, and priority support.',
+    },
+    {
+      title: 'Local Growth',
+      desc: 'Landing pages, forms, and conversion tracking that bring in leads.',
+    },
+  ];
+
+  const pricingPlans = [
+    {
+      name: 'Starter',
+      price: 1500,
+      desc: 'A clean, professional site for businesses getting started online.',
+      features: ['Up to 5 pages', 'Mobile-responsive design', 'On-page SEO setup', 'Contact forms', 'Google Analytics integration', '14-day delivery'],
+      cta: 'Get started',
+      href: '/contact',
+      featured: false,
+    },
+    {
+      name: 'Growth',
+      price: 3000,
+      desc: 'For businesses ready to compete and attract more customers.',
+      features: ['Everything in Starter', 'Up to 7 pages', 'Local SEO setup', 'Professional copywriting', 'Speed optimization', 'Unlimited revisions', '21-day delivery'],
+      cta: 'Get started',
+      href: '/contact',
+      featured: true,
+    },
+    {
+      name: 'Custom',
+      price: 0,
+      desc: 'Larger projects with custom functionality or integrations.',
+      features: ['Unlimited pages', 'Custom functionality', 'E-commerce support', 'API integrations', 'Dedicated project manager', 'Timeline based on scope'],
+      cta: 'Book a call',
+      href: '/contact',
+      featured: false,
+    },
+  ];
+
+  const processSteps = [
+    {
+      num: '01',
+      title: 'Discover',
+      desc: 'We learn about your business, your customers, and what a win looks like.',
+    },
+    {
+      num: '02',
+      title: 'Plan',
+      desc: 'Sitemap, content direction, and design approach locked in before any code.',
+    },
+    {
+      num: '03',
+      title: 'Design',
+      desc: 'You review mockups and we refine until the look and feel is right.',
+    },
+    {
+      num: '04',
+      title: 'Build',
+      desc: 'Fast, accessible code with mobile-first responsiveness throughout.',
+    },
+    {
+      num: '05',
+      title: 'Launch',
+      desc: 'Final testing, your sign-off, and we handle all the deployment details.',
+    },
+    {
+      num: '06',
+      title: 'Support',
+      desc: 'We stick around for updates, maintenance, and whatever comes next.',
+    },
+  ];
+
+  const faqItems = [
+    {
+      q: 'How much does a website cost?',
+      a: `Our packages start at ${formatMoney(1500)} for a 5-page website. Most projects fall between ${formatMoney(3000)} and ${formatMoney(5000)} depending on the number of pages and features. You always get a fixed quote upfront, so there are no surprises.`,
+    },
+    {
+      q: 'How long does it take to build a website?',
+      a: 'A Starter project takes about 14 days from start to launch. Growth packages take around 21 days. Custom projects depend on scope, but we agree on a timeline before any work begins.',
+    },
+    {
+      q: 'How many revisions do I get?',
+      a: 'Starter packages include two rounds of revisions. Growth packages include unlimited revisions. We keep working with you until you are happy with the result.',
+    },
+    {
+      q: 'Do I need to provide all the content?',
+      a: 'You can, but you do not have to. Growth and Custom packages include professional copywriting. For Starter packages, we give you a content template that makes writing easy.',
+    },
+    {
+      q: 'Will my site be optimized for search engines?',
+      a: 'Yes. Every package includes on-page SEO basics like meta tags, heading structure, image alt text, and fast load times. Growth and Custom packages include a deeper SEO setup.',
+    },
+    {
+      q: 'Do you handle hosting?',
+      a: 'We set up hosting for you, or we can deploy to your existing provider. We usually use Vercel or managed WordPress hosting depending on the project. Hosting costs are separate from build fees.',
+    },
+    {
+      q: 'What happens after the site launches?',
+      a: 'We offer Care and Maintenance plans that include updates, backups, monitoring, and priority support. You can also reach out anytime for one-off changes.',
+    },
+    {
+      q: 'I already have a website. Can you redesign it?',
+      a: 'Absolutely. Many of our clients come to us with an existing site that is outdated or not performing well. We look at what you have and build something better, often reusing content and assets that still work.',
+    },
+    {
+      q: 'Who owns the website when it is done?',
+      a: 'You do. 100% of the design, code, and content belongs to you. We hand over everything when the project is complete. No lock-in and no proprietary platforms.',
+    },
+  ];
+
+  /* ------------------------------------------------------------------ */
+  /*  Page                                                               */
+  /* ------------------------------------------------------------------ */
+
   return (
     <>
       {/* ===== HERO ===== */}
