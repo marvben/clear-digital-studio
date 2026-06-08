@@ -14,8 +14,8 @@ export const metadata = {
   description: 'Custom website design, development, SEO, and ongoing support for businesses. Clear pricing, fast delivery, and no long-term contracts.',
 };
 
-export default function ServicesPage() {
-  const { formatMoney } = getLocale() as Locale;
+export default async function ServicesPage() {
+  const { formatMoney } = (await getLocale()) as Locale;
 
   /* ------------------------------------------------------------------ */
   /*  Data                                                               */

@@ -67,11 +67,11 @@ type Locale = {
   formatMoney: (value: number) => string;
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState('');
   const [recaptchaReady, setRecaptchaReady] = useState(false);
-  const { phone, formatMoney } = getLocale() as Locale;
+  const { phone, formatMoney } = (await getLocale()) as Locale;
 
   const projectTypes = ['Brand new website', 'Website redesign', 'WordPress', 'Shopify', 'Landing Page', 'Sales Page', 'Local SEO', 'Speed optimization', 'Maintenance', 'Growth', 'Not sure yet'];
 

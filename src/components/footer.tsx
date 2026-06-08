@@ -9,8 +9,8 @@ type Locale = {
   name: string;
 };
 
-export function Footer() {
-  const { companyType, name } = getLocale() as Locale;
+export async function Footer() {
+  const { companyType, name } = (await getLocale()) as Locale;
 
   return (
     <footer className='border-t border-gray-100 bg-white'>

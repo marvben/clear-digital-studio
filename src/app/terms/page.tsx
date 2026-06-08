@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   description: 'Terms of Service for Clear Digital Studio, a web design and development agency.',
 };
 
-export default function TermsOfServicePage() {
-  const { name, companyType } = getLocale() as Locale;
+export default async function TermsOfServicePage() {
+  const { name, companyType } = (await getLocale()) as Locale;
   const headingClass = 'font-heading text-lg font-semibold text-ink mt-10 mb-3';
   const paragraphClass = 'text-[15px] leading-relaxed text-gray-600 mb-4';
   const listClass = 'text-[15px] leading-relaxed text-gray-600 mb-4 list-disc pl-6 space-y-2';

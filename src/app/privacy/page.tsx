@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   description: 'Privacy Policy for Clear Digital Studio. Learn how we collect, use, and protect your personal information.',
 };
 
-export default function PrivacyPage() {
-  const { name, companyType } = getLocale() as Locale;
+export default async function PrivacyPage() {
+  const { name, companyType } = (await getLocale()) as Locale;
   return (
     <>
       {/* Hero */}

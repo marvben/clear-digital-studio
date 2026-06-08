@@ -1,11 +1,12 @@
 import { COUNTRIES } from '@/data/locales';
 import Cookies from 'js-cookie';
 
-export const getLocale = () => {
+export const getLocale = async () => {
   let code = '';
   if (typeof window === 'undefined') {
     const { cookies } = require('next/headers');
-    code = cookies().get('country')?.value ?? 'US';
+    const cookieStore = await cookies();
+    const code = cookieStore.get('country')?.value ?? 'US';
   } else {
     code = Cookies.get('country') ?? 'US';
   }
