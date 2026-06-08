@@ -1,3 +1,5 @@
+'use client';
+
 import type { Metadata } from 'next';
 import { Section } from '@/components/section';
 import { getLocale } from '@/lib/getLocale';
