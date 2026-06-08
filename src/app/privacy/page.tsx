@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Section } from '@/components/section';
-import { getLocale } from '@/data/getLocale';
+import { getLocale } from '@/lib/getLocale';
 type Locale = { name: string; companyType: string };
 const { name, companyType } = getLocale() as Locale;
 export const metadata: Metadata = {

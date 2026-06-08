@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { getLocale } from '@/data/getLocale';
+import { getLocale } from '@/lib/getLocale';
 
 type Locale = {
   companyType: string;

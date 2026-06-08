@@ -11,7 +11,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Section } from '@/components/section';
 import { Faq } from '@/components/faq';
 import { ArrowRight, Check, Mail, Phone, Clock } from 'lucide-react';
-import { getLocale } from '@/data/getLocale';
+import { getLocale } from '@/lib/getLocale';
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 

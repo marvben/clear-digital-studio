@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Section } from '@/components/section';
 import { Faq } from '@/components/faq';
 import { ArrowRight, Check } from 'lucide-react';
-import { getLocale } from '@/data/getLocale';
+import { getLocale } from '@/lib/getLocale';
 
 type Locale = {
   formatMoney: (value: number) => string;
