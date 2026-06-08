@@ -2,7 +2,7 @@
 
 import type { Metadata } from 'next';
 import { Section } from '@/components/section';
-import { getLocale } from '@/lib/getLocale';
+import { getClientLocale } from '@/lib/getClientLocale';
 type Locale = { name: string; companyType: string };
 
 export const metadata: Metadata = {
@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   description: 'Terms of Service for Clear Digital Studio, a web design and development agency.',
 };
 
-export default async function TermsOfServicePage() {
-  const { name, companyType } = (await getLocale()) as Locale;
+export default function TermsOfServicePage() {
+  const { name, companyType } = getClientLocale() as Locale;
   const headingClass = 'font-heading text-lg font-semibold text-ink mt-10 mb-3';
   const paragraphClass = 'text-[15px] leading-relaxed text-gray-600 mb-4';
   const listClass = 'text-[15px] leading-relaxed text-gray-600 mb-4 list-disc pl-6 space-y-2';

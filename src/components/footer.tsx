@@ -2,15 +2,15 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { getLocale } from '@/lib/getLocale';
+import { getClientLocale } from '@/lib/getClientLocale';
 
 type Locale = {
   companyType: string;
   name: string;
 };
 
-export async function Footer() {
-  const { companyType, name } = (await getLocale()) as Locale;
+export function Footer() {
+  const { companyType, name } = getClientLocale() as Locale;
 
   return (
     <footer className='border-t border-gray-100 bg-white'>

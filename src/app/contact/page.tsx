@@ -11,7 +11,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Section } from '@/components/section';
 import { Faq } from '@/components/faq';
 import { ArrowRight, Check, Mail, Phone, Clock } from 'lucide-react';
-import { getLocale } from '@/lib/getLocale';
+import { getClientLocale } from '@/lib/getClientLocale';
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
@@ -67,11 +67,11 @@ type Locale = {
   formatMoney: (value: number) => string;
 };
 
-export default async function ContactPage() {
+export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState('');
   const [recaptchaReady, setRecaptchaReady] = useState(false);
-  const { phone, formatMoney } = (await getLocale()) as Locale;
+  const { phone, formatMoney } = getClientLocale() as Locale;
 
   const projectTypes = ['Brand new website', 'Website redesign', 'WordPress', 'Shopify', 'Landing Page', 'Sales Page', 'Local SEO', 'Speed optimization', 'Maintenance', 'Growth', 'Not sure yet'];
 

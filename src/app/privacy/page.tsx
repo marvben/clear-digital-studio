@@ -1,7 +1,7 @@
 'use client';
 import type { Metadata } from 'next';
 import { Section } from '@/components/section';
-import { getLocale } from '@/lib/getLocale';
+import { getClientLocale } from '@/lib/getClientLocale';
 type Locale = { name: string; companyType: string };
 
 export const metadata: Metadata = {
@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   description: 'Privacy Policy for Clear Digital Studio. Learn how we collect, use, and protect your personal information.',
 };
 
-export default async function PrivacyPage() {
-  const { name, companyType } = (await getLocale()) as Locale;
+export default function PrivacyPage() {
+  const { name, companyType } = getClientLocale() as Locale;
   return (
     <>
       {/* Hero */}

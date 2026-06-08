@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Section } from '@/components/section';
 import { Faq } from '@/components/faq';
 import { ArrowRight, Check } from 'lucide-react';
-import { getLocale } from '@/lib/getLocale';
+import { getClientLocale } from '@/lib/getClientLocale';
 
 type Locale = {
   formatMoney: (value: number) => string;
@@ -16,8 +16,8 @@ export const metadata = {
   description: 'Custom website design, development, SEO, and ongoing support for businesses. Clear pricing, fast delivery, and no long-term contracts.',
 };
 
-export default async function ServicesPage() {
-  const { formatMoney } = (await getLocale()) as Locale;
+export default function ServicesPage() {
+  const { formatMoney } = getClientLocale() as Locale;
 
   /* ------------------------------------------------------------------ */
   /*  Data                                                               */
